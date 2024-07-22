@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: deepchecks_db
+    env_file:
+      - .env
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db-init:/docker-entrypoint-initdb.d
+    ports:
+      - "5444:5444"
+    networks:
+      - deepchecks_network
+
+  app:
+    build: .
+    container_name: deepchecks_app
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - deepchecks_network
+
+volumes:
+  db_data:
+
+networks:
+  deepchecks_network:
+    driver: bridge

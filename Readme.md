@@ -37,14 +37,21 @@ Make sure your .env file contains the correct values for your environment.
 ```bash
 docker-compose up --build
 ```
-### 3. Run the simulation script:
+
+## Testing the API
+
+ 1. Create a virrtual enviroment 
+
+2. Activate the enviroment and run `pip install requirements.txt`
+
+3. Run the simulation script:
 ```bash
 python simulate_llm.py
 ```
 
-## Using Postman Collection
+### Using Postman Collection
 1. Open Postman.
-2. Import the provided Postman collection `FastAPI.postman_collection.json.`
+2. Import the provided Postman collection `api-docs/FastAPI.postman_collection.json.`
 3. The collection includes pre-configured requests for:
     -  Logging new interactions
     - Retrieving metrics

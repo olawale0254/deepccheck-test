@@ -10,7 +10,7 @@ services:
       - db_data:/var/lib/postgresql/data
       - ./db-init:/docker-entrypoint-initdb.d
     ports:
-      - "${PORTDB}:{PORTDB}"
+      - "${PORTDB}:5444"
     networks:
       - deepchecks_network
 
@@ -20,7 +20,7 @@ services:
     env_file:
       - .env
     ports:
-      - "${PORTAPI}:{PORTAPI}"
+      - "${PORTAPI}:8000"
     depends_on:
       - db
     networks:
@@ -29,6 +29,4 @@ services:
 volumes:
   db_data:
 
-networks:
-  deepchecks_network:
-    driver: bridge
+

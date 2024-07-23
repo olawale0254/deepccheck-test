@@ -11,8 +11,6 @@ services:
       - ./db-init:/docker-entrypoint-initdb.d
     ports:
       - "${PORTDB}:5444"
-    networks:
-      - deepchecks_network
 
   app:
     build: .
@@ -23,8 +21,6 @@ services:
       - "${PORTAPI}:8000"
     depends_on:
       - db
-    networks:
-      - deepchecks_network
 
 volumes:
   db_data:

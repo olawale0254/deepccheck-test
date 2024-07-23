@@ -22,17 +22,11 @@ This project is a backend service built with FastAPI to log interactions, calcul
 
 ### Environment Variables
 
-Create a `.env` file in the root directory of the project and add the following environment variables:
+Create a `.env` file in the root directory of the project by doing:
 
-```dotenv
-POSTGRES_USER=your_postgres_user
-POSTGRES_PASSWORD=your_postgres_password
-POSTGRES_DB=your_postgres_db
-THRESHOLD_VALUE=100.0
-OUTLIER_FACTOR=2.0
+```env
+`cp .env.example .env`
 ```
-
-You can use the provided `.env.example` as a template.
 
 ## Building and Running the Application
 
